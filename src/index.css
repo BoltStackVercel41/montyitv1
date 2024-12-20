@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased text-gray-900;
+  }
+}
+
+@layer utilities {
+  .animate-gradient-x {
+    animation: gradient-x 15s linear infinite;
+    background-size: 400% auto;
+  }
+
+  @keyframes gradient-x {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .masonry {
+    column-count: 3;
+    column-gap: 1.5rem;
+  }
+  
+  .masonry > div {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 1024px) {
+    .masonry {
+      column-count: 2;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .masonry {
+      column-count: 1;
+    }
+  }
+}

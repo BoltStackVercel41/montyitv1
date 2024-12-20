@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /api/
+RewriteRule ^$ contact.php [L]
+RewriteRule ^contact/?$ contact.php [L]
+
+# Handle CORS preflight requests
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Set CORS headers for all responses
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "POST, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type"
